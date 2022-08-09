@@ -14,21 +14,27 @@
     </v-app-bar>
 
     <v-main>
-      <v-data-table
-        :headers="headers"
-        :items="items"
-        item-key="id"
-        class="elevation-0"
-      >
-        <!-- https://stackoverflow.com/a/63309643/4670905 -->
-        <template #[`item.actions`]="{ item }">
-          <v-icon small @click="openIncomeEditForm(item)">mdi-pencil</v-icon>
-          <v-icon small @click="deleteIncome(item)">mdi-delete</v-icon>
-        </template>
-      </v-data-table>
-
-      <income-chart :income-items="items" />
-
+      <v-container>
+        <v-row>
+          <v-col cols="6">
+            <v-data-table
+              :headers="headers"
+              :items="items"
+              item-key="id"
+              class="elevation-0"
+            >
+              <!-- https://stackoverflow.com/a/63309643/4670905 -->
+              <template #[`item.actions`]="{ item }">
+                <v-icon small @click="openIncomeEditForm(item)"
+                  >mdi-pencil</v-icon
+                >
+                <v-icon small @click="deleteIncome(item)">mdi-delete</v-icon>
+              </template>
+            </v-data-table>
+          </v-col>
+          <v-col cols="6"> <income-chart :income-items="items" /> </v-col>
+        </v-row>
+      </v-container>
       <v-dialog v-model="isAddDialogOpen" persistent max-width="600px">
         <income-add-form
           :item="editItem"
@@ -37,10 +43,8 @@
           @edit-income="editIncome"
         />
       </v-dialog>
-
       <v-snackbar v-model="isErrorMsgVisible">
         {{ errorMessage }}
-
         <template v-slot:action="{ attrs }">
           <v-btn color="red" text v-bind="attrs" @click="errorMessage = ''">
             Dismiss
