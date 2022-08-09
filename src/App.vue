@@ -27,7 +27,7 @@
         </template>
       </v-data-table>
 
-      <income-chart />
+      <income-chart :income-items="items" />
 
       <v-dialog v-model="isAddDialogOpen" persistent max-width="600px">
         <income-add-form
