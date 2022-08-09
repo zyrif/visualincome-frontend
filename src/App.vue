@@ -165,7 +165,7 @@ export default {
             this.items = resp.data
           }
         })
-        .catch((error) => console.debug(error))
+        .catch(this.axiosErrorHandler)
         .finally()
     }
   }
