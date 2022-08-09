@@ -1,7 +1,12 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center"></div>
+      <div class="d-flex align-center">
+        <v-toolbar-title class="text-uppercase">
+          <span class="font-weight-light">Visual </span>
+          <span> Income</span>
+          </v-toolbar-title>
+      </div>
 
       <v-spacer></v-spacer>
 
