@@ -103,7 +103,7 @@ export default {
           },
           y: {
             title: { display: true, text: 'Income' },
-            beginAtZero: true
+            offset: true
           }
         }
       }
